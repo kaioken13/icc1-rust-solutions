@@ -19,7 +19,7 @@ While the course traditionally uses C, I've chosen to implement these fundamenta
 
 ## 🚀 How to Run
 1. Ensure you have `rustc` and `cargo` installed.
-2. Clone the repo: `git clone https://github.com/thiago-aragao/rusty-icc1-usp`
+2. Clone the repo: `git clone https://github.com/kaioken13/icc1-rust-solutions`
 3. Run a specific exercise: `cargo run --bin exercise_name`
 
 ---
