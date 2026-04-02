@@ -3,21 +3,22 @@ use std::io;
 fn main() {
     let mut input = String::new();
 
-    // Unwrap() é utilizado como um tratamento de erro no Rust
-    // O read_line(&mut input) pega tudo que foi digitado pelo usuário
-    // e joga dentro de input criado acima
+    // read_line(&mut input) captures all user input from stdin 
+    // and stores it in the 'input' buffer created above.
+    // .unwrap() is used here for basic error handling (standard in learning phases).
     io::stdin().read_line(&mut input).unwrap();
 
-    // Separa as palavras onde tem espaços e transforma numa Collection
+    // split_whitespace() divides the string by spaces/tabs/newlines.
+    // .collect() gathers these parts into a Vector (Collection) of string slices.
     let palavras: Vec<&str> = input.split_whitespace().collect();
 
     if palavras.len() == 2 {
-        // Parse() tenta transforma a String em outro tipo
-        // Aqui o Rust deduz pelo let: i64 qual é o tipo
+        // .parse() attempts to convert the String into another type.
+        // Rust infers the target type (i64) from the variable declaration.
         let a: i64 = palavras[0].parse().unwrap();
 
-        // Chars() transforma a String numa sequência de caracteres
-        // Next() pega o próximo de um iterador
+        // .chars() transforms the string into a sequence of characters.
+        // .next() retrieves the first element from this iterator.
         let b: char = palavras[1].chars().next().unwrap();
 
         
@@ -26,9 +27,12 @@ fn main() {
     }
 
 /*
-De cara, tive um problema com o compilador de escopo, pois tentei printar
-os valores fora do escopo if, mas o Rust não deixa porque o escopo pai
-não tem acesso ao escopo filho, o contrário funciona, por isso consigo
-usar palavras dentro do if, mas não a e b fora dele.
+    LEARNING LOG / TROUBLESHOOTING:
+    Initially, I faced a compiler error regarding variable scope. 
+    I tried to print 'a' and 'b' outside the 'if' block, but Rust's ownership 
+    and scope rules prevented it. 
+    Key Concept: A parent scope cannot access variables created within a 
+    child scope (the 'if' block), although the child can access variables 
+    from the parent (like the 'words' vector).
 */
 }
