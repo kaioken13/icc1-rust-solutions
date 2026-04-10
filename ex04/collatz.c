@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    int a;
-    int n = 1;
+    unsigned int a;
+    unsigned int n = 1;
 
-    scanf("%d", &a);
+    scanf("%u", &a);
 
     while (a != 1) {
-        printf("%d ", a);
+        printf("%u ", a);
 
         if (a % 2 == 0) {
             a = a / 2;
@@ -18,7 +18,7 @@ int main() {
         n++;
     }
 
-    printf("%d\n", a);
-    printf("%d", n);
+    printf("%u\n", a);
+    printf("%u", n);
     return 0;
 }
